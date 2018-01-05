@@ -11,10 +11,15 @@ class FormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//    }
+    
     public function index()
     {
         //
-        return view('home');
+        return view('form');
     }
 
     public function register(Request $request)

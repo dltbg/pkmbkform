@@ -11,11 +11,14 @@
 |
 */
 
-Route::get('/', ['as'=>'/', 'uses'=>'FormController@index']);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('new_participant', ['as'=>'new_participant', 'uses'=>'FormController@register']);
+Route::any('dashboard', ['as'=>'dashboard', 'uses'=>'DashboardController@index']);
 Route::get('/', ['as'=>'/', 'uses'=>'FormController@index']);
 
-Route::get('login', ['as'=>'login', 'uses'=>'LoginController@index']);
-Route::post('login', ['as'=>'login', 'uses'=>'LoginController@login']);
-Route::get('logout', ['as'=>'logout', 'uses'=>'LoginController@logout']);
+//Route::get('login', ['as'=>'login', 'uses'=>'LoginController@index']);
+//Route::post('login', ['as'=>'login', 'uses'=>'LoginController@login']);
+//Route::get('logout', ['as'=>'logout', 'uses'=>'LoginController@logout']);
