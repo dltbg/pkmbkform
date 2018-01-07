@@ -24,7 +24,15 @@ class DashboardController extends Controller
     public function unverified($nrp)
     {
         $unverify = Peserta::where('nrp',$nrp)->update(['konfirmasi' => 0]);
-        return redirect()->route('dashboard')->with('alert-danger', 'Unser Unverified!');
+        return redirect()->route('dashboard')->with('alert-danger', 'User Unverified!');
+    }
+    
+    public function assignBus(Request $request)
+    {
+        $nrp = $request->nrp;
+        $bus = $request->bus;
+        $busss = Absensi::where('nrp',$nrp)->update(['bus_berangkat' => $bus]);
+        return redirect()->route('dashboard')->with('alert-success', 'Bus Assigned!');
     }
     
     public function index()
@@ -42,17 +50,19 @@ class DashboardController extends Controller
         $panitia = Peserta::where('posisi', 'PANITIA')->count();
         $alumni = Peserta::where('posisi', 'ALUMNI')->count();
         
-        $bus_no = Absensi::where('bus_berangkat',0)->count();
+        $bus_no = Peserta::join('absensis', 'pesertas.nrp', '=', 'absensis.nrp')->where('konfirmasi',1)->where('bus_berangkat',0)->count();
         
-        $bus1 = Absensi::join('pesertas', 'pesertas.nrp', '=', 'absensis.nrp')->select('pesertas.*')->where('bus_berangkat', 1)->get();
-        $bus2 = Absensi::join('pesertas', 'pesertas.nrp', '=', 'absensis.nrp')->select('pesertas.*')->where('bus_berangkat', 2)->get();
-        $bus3 = Absensi::join('pesertas', 'pesertas.nrp', '=', 'absensis.nrp')->select('pesertas.*')->where('bus_berangkat', 3)->get();
-        $bus4 = Absensi::join('pesertas', 'pesertas.nrp', '=', 'absensis.nrp')->select('pesertas.*')->where('bus_berangkat', 4)->get();
-        $bus5 = Absensi::join('pesertas', 'pesertas.nrp', '=', 'absensis.nrp')->select('pesertas.*')->where('bus_berangkat', 5)->get();
-        $bus6 = Absensi::join('pesertas', 'pesertas.nrp', '=', 'absensis.nrp')->select('pesertas.*')->where('bus_berangkat', 6)->get();
+        $bus1 = Peserta::join('absensis', 'pesertas.nrp', '=', 'absensis.nrp')->select('pesertas.*')->where('konfirmasi',1)->where('bus_berangkat', 1)->get();
+        $bus2 = Peserta::join('absensis', 'pesertas.nrp', '=', 'absensis.nrp')->select('pesertas.*')->where('konfirmasi',1)->where('bus_berangkat', 2)->get();
+        $bus3 = Peserta::join('absensis', 'pesertas.nrp', '=', 'absensis.nrp')->select('pesertas.*')->where('konfirmasi',1)->where('bus_berangkat', 3)->get();
+        $bus4 = Peserta::join('absensis', 'pesertas.nrp', '=', 'absensis.nrp')->select('pesertas.*')->where('konfirmasi',1)->where('bus_berangkat', 4)->get();
+        $bus5 = Peserta::join('absensis', 'pesertas.nrp', '=', 'absensis.nrp')->select('pesertas.*')->where('konfirmasi',1)->where('bus_berangkat', 5)->get();
+        $bus6 = Peserta::join('absensis', 'pesertas.nrp', '=', 'absensis.nrp')->select('pesertas.*')->where('konfirmasi',1)->where('bus_berangkat', 6)->get();
+        $sendiri = Peserta::join('absensis', 'pesertas.nrp', '=', 'absensis.nrp')->select('pesertas.*')->where('konfirmasi',1)->where('bus_berangkat', 7)->get();
+        $bus = Peserta::join('absensis', 'pesertas.nrp', '=', 'absensis.nrp')->select('pesertas.*', 'absensis.bus_berangkat')->where('konfirmasi',1)->get();
         
-//        dd($bus1);
+//        dd($bus);
         
-        return view('dashboard')->with('peserta', $peserta)->with('verified', $verified)->with('unverified', $unverified)->with('bus_ok', $peserta->count()-$bus_no)->with('bus_no', $bus_no)->with('bus1', $bus1)->with('bus2', $bus2)->with('bus3', $bus3)->with('bus4', $bus4)->with('bus5', $bus5)->with('bus6', $bus6)->with('akk', $akk)->with('cpkk', $cpkk)->with('pkk', $pkk)->with('pelayan', $pelayan)->with('panitia', $panitia)->with('alumni', $alumni);
+        return view('dashboard')->with('peserta', $peserta)->with('verified', $verified)->with('unverified', $unverified)->with('bus_ok', $verified->count()-$bus_no)->with('bus_no', $bus_no)->with('bus1', $bus1)->with('bus2', $bus2)->with('bus3', $bus3)->with('bus4', $bus4)->with('bus5', $bus5)->with('bus6', $bus6)->with('sendiri', $sendiri)->with('buz', $bus)->with('akk', $akk)->with('cpkk', $cpkk)->with('pkk', $pkk)->with('pelayan', $pelayan)->with('panitia', $panitia)->with('alumni', $alumni);
     }
 }

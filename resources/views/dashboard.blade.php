@@ -135,7 +135,7 @@
                     <div class="box-body">
                         <h3>Data Pendaftar Belum Diverifikasi</h3>
                         <div class="table-responsive" style="overflow: auto">
-                        <table id="alumni" class="table table-bordered table-striped">
+                        <table id="unverified" class="table table-bordered table-striped">
                             <thead>
                               <tr>
                                 <th>ID</th>
@@ -155,7 +155,7 @@
                                     <td>{{$unverif->posisi}}</td>
                                     <td>{{$unverif->line}}</td>
                                     <td>
-                                        <a method="post"href="verified/<?php echo $unverif['nrp'];?>" class="btn btn-success" type="submit" onClick="return confirm('Lakukan verifikasi?')">Verifikasi</a>
+                                        <a method="post" href="verified/<?php echo $unverif['nrp'];?>" class="btn btn-success" type="submit" onClick="return confirm('Lakukan verifikasi?')">Verifikasi</a>
                                     </td>
                                   </tr>
                                 @endforeach
@@ -170,7 +170,7 @@
                     <div class="box-body">
                         <h3>Data Pendaftar Sudah Diverifikasi</h3>
                         <div class="table-responsive" style="overflow: auto">
-                        <table id="alumni" class="table table-bordered table-striped">
+                        <table id="verified" class="table table-bordered table-striped">
                             <thead>
                               <tr>
                                 <th>ID</th>
@@ -230,7 +230,7 @@
                             @php $bus = 'bus'.$i; @endphp
                             <h3>Bus {{$i}}</h3>
                             <div class="table-responsive" style="overflow: auto">
-                            <table id="alumni" class="table table-bordered table-striped">
+                            <table id="{{$bus}}" class="table table-bordered table-striped">
                                 <thead>
                                   <tr>
                                     <th>ID</th>
@@ -252,7 +252,7 @@
                         </div>
                     </div>
                 </div>
-            @endfor
+                @endfor
             </section>
             <section class="row col-lg-12">
                 @for($i=4; $i<=6; $i++)
@@ -262,7 +262,7 @@
                             @php $bus = 'bus'.$i; @endphp
                             <h3>Bus {{$i}}</h3>
                             <div class="table-responsive" style="overflow: auto">
-                            <table id="alumni" class="table table-bordered table-striped">
+                            <table id="{{$bus}}" class="table table-bordered table-striped">
                                 <thead>
                                   <tr>
                                     <th>ID</th>
@@ -284,7 +284,80 @@
                         </div>
                     </div>
                 </div>
-            @endfor
+                @endfor
+            </section>
+            <section class="row col-lg-12">
+                <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <h3>Berangkat Sendiri</h3>
+                            <div class="table-responsive" style="overflow: auto">
+                            <table id="sendiri" class="table table-bordered table-striped">
+                                <thead>
+                                  <tr>
+                                    <th>ID</th>
+                                    <th>Nama</th>
+                                    <th>NRP</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($sendiri as $buss)
+                                    <tr>
+                                        <td>{{$buss->id}}</td>
+                                        <td>{{$buss->nama}}</td>
+                                        <td>{{$buss->nrp}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            <h3>Assign Bus</h3>
+                            <div class="table-responsive" style="overflow: auto">
+                            <table id="assign" class="table table-bordered table-striped">
+                                <thead>
+                                  <tr>
+                                    <th>ID</th>
+                                    <th>Nama</th>
+                                    <th>NRP</th>
+                                    <th>Assign Bus</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($buz as $buss)
+                                    <tr>
+                                        <td>{{$buss->id}}</td>
+                                        <td>{{$buss->nama}}</td>
+                                        <td>{{$buss->nrp}}</td>
+                                        <td>
+                                            <form action="{{route('assign')}}" method="post">
+                                                {{csrf_field()}}
+                                                <input type="text" name="nrp" value="{{$buss->nrp}}" hidden>
+                                                <select class="form-control" name="bus" onchange="this.form.submit();">
+                                                    <option value="0" @if($buss['bus_berangkat']==0) selected @endif> Belum Dapat</option>
+                                                    <option value="1" @if($buss['bus_berangkat']==1) selected @endif> Bus 1</option>
+                                                    <option value="2" @if($buss['bus_berangkat']==2) selected @endif> Bus 2</option>
+                                                    <option value="3" @if($buss['bus_berangkat']==3) selected @endif> Bus 3</option>
+                                                    <option value="4" @if($buss['bus_berangkat']==4) selected @endif> Bus 4</option>
+                                                    <option value="5" @if($buss['bus_berangkat']==5) selected @endif> Bus 5</option>
+                                                    <option value="6" @if($buss['bus_berangkat']==6) selected @endif> Bus 6</option>
+                                                    <option value="7" @if($buss['bus_berangkat']==7) selected @endif> Berangkat Sendiri</option>
+                                                </select>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
             </section>
     
             <section class="col-lg-12">
@@ -379,7 +452,7 @@
                     <div class="box-body">
                         <h3>Data Seluruh Peserta</h3>
                         <div class="table-responsive" style="overflow: auto">
-                        <table id="alumni" class="table table-bordered table-striped">
+                        <table id="peserta" class="table table-bordered table-striped">
                             <thead>
                               <tr>
                                 <th>ID</th>
@@ -456,3 +529,95 @@
 <script src="{{ URL::asset('public/adminlte/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ URL::asset('public/adminlte/dist/js/demo.js') }}"></script>
+<script>
+$(function() {
+    $('#verified').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    }),
+    $('#unverified').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    }),
+    $('#bus1').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    }),
+    $('#bus2').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    }),
+    $('#bus3').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    }),
+    $('#bus4').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    }),
+    $('#bus5').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    }),
+    $('#bus6').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    }),
+    $('#assign').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    }),
+    $('#sendiri').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    }),
+    $('#peserta').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": true
+    });
+  });
+</script>
