@@ -86,6 +86,7 @@
                                     <option value="PKK">PKK</option>
                                     <option value="CPKK">CPKK</option>
                                     <option value="PELAYAN">PELAYAN</option>
+                                    <option value="ALUMNI">ALUMNI</option>
                                     <option value="PANITIA">PANITIA</option>
                                 </select>
                             </div>

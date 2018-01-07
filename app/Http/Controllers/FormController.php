@@ -39,6 +39,7 @@ class FormController extends Controller
         $data->hp_ortu          = $request->get('hp_ortu');
         $data->line             = $request->get('line');
         $data->bukti_transfer   = $request->file('bukti_transfer')->store('bukti_transfer');
+        $data->konfirmasi       = '0';
 
         $data->save();
 
