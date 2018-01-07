@@ -14,6 +14,8 @@
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/verified', 'DashboardController@verified')->name('verified');
+Route::get('/home', 'DashboardController@unverified')->name('unverified');
 
 Route::post('new_participant', ['as'=>'new_participant', 'uses'=>'FormController@register']);
 Route::any('dashboard', ['as'=>'dashboard', 'uses'=>'DashboardController@index']);

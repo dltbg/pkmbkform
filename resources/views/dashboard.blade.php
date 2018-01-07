@@ -54,49 +54,74 @@
     <!-- Main content -->
     <section class="content">
       <!-- Small boxes (Stat box) -->
-      <div class="row">
-        <div class="col-lg-3 col-xs-6">
+        <div class="row">
+        <div class="col-lg-2 col-xs-4">
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3>{{$peserta->count()}}</h3>
 
               <p>Terdaftar</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-2 col-xs-4">
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53</h3>
+              <h3>{{$verified->count()}}</h3>
 
               <p>Terverifikasi</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-2 col-xs-4">
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+              <h3>{{$unverified->count()}}</h3>
 
               <p>Belum Terverifikasi</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-2 col-xs-4">
+          <!-- small box -->
+          <div class="small-box bg-blue">
+            <div class="inner">
+              <h3>{{$bus_ok}}</h3>
+
+              <p>Dapat Bus</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-2 col-xs-4">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>{{$bus_no}}</h3>
+
+              <p>Belum Dapat Bus</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
           </div>
         </div>
         <!-- ./col -->
@@ -108,7 +133,7 @@
             <div class=" col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="box box-primary">
                     <div class="box-body">
-                        <h3>Data Pendaftar Belum Diverifikasi
+                        <h3>Data Pendaftar Belum Diverifikasi</h3>
                         <div class="table-responsive" style="overflow: auto">
                         <table id="alumni" class="table table-bordered table-striped">
                             <thead>
@@ -116,22 +141,24 @@
                                 <th>ID</th>
                                 <th>Nama</th>
                                 <th>NRP</th>
-                                <th>Status</th>
+                                <th>Posisi</th>
                                 <th>ID Line</th>
                                 <th>Konfirmasi</th>
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>1</td>
-                                <td>Prasetyo Nugrohadi</td>
-                                <td>05111440000070</td>
-                                <td>Kuli Coding</td>
-                                <td>prasetyonz</td>
-                                <td>
-                                    <a class="btn btn-primary" type="submit">Konfirmasi</a>
-                                </td>
-                              </tr>
+                                @foreach($unverified as $unverif)
+                                  <tr>
+                                    <td>{{$unverif->id}}</td>
+                                    <td>{{$unverif->nama}}</td>
+                                    <td>{{$unverif->nrp}}</td>
+                                    <td>{{$unverif->posisi}}</td>
+                                    <td>{{$unverif->line}}</td>
+                                    <td>
+                                        <a class="btn btn-primary" type="submit">Konfirmasi</a>
+                                    </td>
+                                  </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         </div> 
@@ -141,7 +168,7 @@
             <div class=" col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="box box-primary">
                     <div class="box-body">
-                        <h3>Data Pendaftar Sudah Diverifikasi
+                        <h3>Data Pendaftar Sudah Diverifikasi</h3>
                         <div class="table-responsive" style="overflow: auto">
                         <table id="alumni" class="table table-bordered table-striped">
                             <thead>
@@ -155,16 +182,18 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>1</td>
-                                <td>Prasetyo Nugrohadi</td>
-                                <td>05111440000070</td>
-                                <td>Kuli Coding</td>
-                                <td>prasetyonz</td>
-                                <td>
-                                    <a class="btn btn-danger" type="submit">Batalkan</a>
-                                </td>
-                              </tr>
+                              @foreach($verified as $verif)
+                                  <tr>
+                                    <td>{{$verif->id}}</td>
+                                    <td>{{$verif->nama}}</td>
+                                    <td>{{$verif->nrp}}</td>
+                                    <td>{{$verif->posisi}}</td>
+                                    <td>{{$verif->line}}</td>
+                                    <td>
+                                        <a class="btn btn-danger" type="submit">Batalkan</a>
+                                    </td>
+                                  </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         </div> 
@@ -173,6 +202,25 @@
             </div>
         </section>
             <section class="col-lg-12">
+                <div class="row">
+                 @for($i=1; $i<=6; $i++)
+                <div class="col-lg-2 col-xs-4">
+                  <!-- small box -->
+                  <div class="small-box bg-aqua">
+                    <div class="inner">
+                        @php $bus = 'bus'.$i; @endphp
+                      <h3>{{${$bus}->count()}}</h3>
+
+                      <p>BUS {{$i}}</p>
+                    </div>
+                    <div class="icon">
+                      <i class="ion ion-bag"></i>
+                    </div>
+                  </div>
+                </div>
+                @endfor
+                <!-- ./col -->
+               </div>
                 @for($i=1; $i<=6; $i++)
                 <div class=" col-lg-4 col-md-4 col-sm-6 col-xs-6">
                     <div class="box box-primary">
@@ -188,11 +236,13 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <tr>
-                                    <td>1</td>
-                                    <td>Prasetyo Nugrohadi</td>
-                                    <td>05111440000070</td>
-                                  </tr>
+                                @foreach(${$bus} as $buss)
+                                    <tr>
+                                        <td>{{$buss->id}}</td>
+                                        <td>{{$buss->nama}}</td>
+                                        <td>{{$buss->nrp}}</td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                             </div> 
@@ -201,11 +251,98 @@
                 </div>
                 @endfor
             </section>
+            
             <section class="col-lg-12">
+                <div class="row">
+        <div class="col-lg-2 col-xs-4">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>{{$akk}}</h3>
+
+              <p>AKK</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-2 col-xs-4">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3>{{$cpkk}}</h3>
+
+              <p>CPKK</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-2 col-xs-4">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>{{$pkk}}</h3>
+
+              <p>PKK</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-2 col-xs-4">
+          <!-- small box -->
+          <div class="small-box bg-blue">
+            <div class="inner">
+              <h3>{{$pelayan}}</h3>
+
+              <p>PELAYAN</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-2 col-xs-4">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>{{$panitia}}</h3>
+
+              <p>PANITIA</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-2 col-xs-4">
+          <!-- small box -->
+          <div class="small-box bg-black">
+            <div class="inner">
+              <h3>{{$alumni}}</h3>
+
+              <p>ALUMNI</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+       </div>
             <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="box box-primary">
                     <div class="box-body">
-                        <h3>Data Seluruh Peserta
+                        <h3>Data Seluruh Peserta</h3>
                         <div class="table-responsive" style="overflow: auto">
                         <table id="alumni" class="table table-bordered table-striped">
                             <thead>
@@ -213,7 +350,7 @@
                                 <th>ID</th>
                                 <th>Nama</th>
                                 <th>NRP</th>
-                                <th>Status</th>
+                                <th>Posisi</th>
                                 <th>Departemen</th>
                                 <th>Nama PKK</th>
                                 <th>Alergi</th>
@@ -221,24 +358,26 @@
                                 <th>No HP</th>
                                 <th>No HP Ortu</th>
                                 <th>ID Line</th>
-                                <th>Konfirmasi</th>
+                                <th>Bukti Transfer</th>
                               </tr>
                             </thead>
                             <tbody>
+                            @foreach($peserta as $pesertas)
                               <tr>
-                                <td>1</td>
-                                <td>Prasetyo Nugrohadi</td>
-                                <td>05111440000070</td>
-                                <td>Kuli Coding</td>
-                                <td>Informatika</td>
-                                <td>-</td>
-                                <td>Seafood</td>
-                                <td>Asma ulhusna</td>
-                                <td>087854444653</td>
-                                <td>0818589290</td>
-                                <td>prasetyonz</td>
-                                <td>Sudah / Belum</td>
+                                <td>{{$pesertas->id}}</td>
+                                <td>{{$pesertas->nama}}</td>
+                                <td>{{$pesertas->nrp}}</td>
+                                <td>{{$pesertas->posisi}}</td>
+                                <td>{{$pesertas->departemen}}</td>
+                                <td>{{$pesertas->nama_pkk}}</td>
+                                <td>{{$pesertas->alergi}}</td>
+                                <td>{{$pesertas->penyakit}}</td>
+                                <td>{{$pesertas->hp}}</td>
+                                <td>{{$pesertas->hp_ortu}}</td>
+                                <td>{{$pesertas->line}}</td>
+                                <td>{{$pesertas->bukti_transfer}}</td>
                               </tr>
+                            @endforeach
                             </tbody>
                         </table>
                         </div> 
@@ -251,6 +390,8 @@
     <!-- /.content -->
     </div>
   </section>
+</div>
+    
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
@@ -259,175 +400,7 @@
     <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
     reserved.
   </footer>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Recent Activity</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                <p>Will be 23 on April 24th</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-user bg-yellow"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                <p>New phone +1(800)555-1234</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                <p>nora@example.com</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                <p>Execution time 5 seconds</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-        <h3 class="control-sidebar-heading">Tasks Progress</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Custom Template Design
-                <span class="label label-danger pull-right">70%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Update Resume
-                <span class="label label-success pull-right">95%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Laravel Integration
-                <span class="label label-warning pull-right">50%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Back End Framework
-                <span class="label label-primary pull-right">68%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-      </div>
-      <!-- /.tab-pane -->
-      <!-- Stats tab content -->
-      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-      <!-- /.tab-pane -->
-      <!-- Settings tab content -->
-      <div class="tab-pane" id="control-sidebar-settings-tab">
-        <form method="post">
-          <h3 class="control-sidebar-heading">General Settings</h3>
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Report panel usage
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Some information about this general settings option
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Allow mail redirect
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Other sets of options are available
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Expose author name in posts
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Allow the user to show his name in blog posts
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <!-- /.form-group -->
-        </form>
-      </div>
-      <!-- /.tab-pane -->
     </div>
-  </aside>
-</div>
-<!-- ./wrapper -->
-
 </body>
 </html>
 
