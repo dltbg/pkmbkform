@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Peserta;
 use App\Absensi;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 
 class FormController extends Controller
 {
@@ -26,6 +29,27 @@ class FormController extends Controller
 
     public function register (Request $request)
     {
+        
+        $rules = array(
+            'bukti_transfer'    => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+
+            $after_save = [
+                 'alert' => 'danger',
+                 'title' => 'Ada Kesalahan!',
+                 'text-1' => 'Pastikan file adalah .jpg .jpeg atau .png',
+                 'text-2' => 'dan maksimal 2MB.'
+             ];
+
+            return Redirect::back()
+                ->withErrors($validator)
+                ->with('after_save', $after_save);
+
+        }
 
         $data = new Peserta;
 

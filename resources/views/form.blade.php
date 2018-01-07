@@ -44,6 +44,19 @@
                         {{ session('alert') }}
                     </div>
                 @endif
+
+    {{-- part alert --}}
+                @if (Session::has('after_save'))
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="alert alert-dismissible alert-{{ Session::get('after_save.alert') }}">
+                            <strong>{{ Session::get('after_save.title') }}</strong>
+                            <a>{{ Session::get('after_save.text-1') }}</a> {{ Session::get('after_save.text-2') }}
+                            </div>
+                        </div>
+                    </div>
+                @endif
+    {{-- end part alert --}}
                     <div class="col-md-12" align="left">
                         <div class="form-group">
                             <label class="col-md-4 control-label" style="color: red;"><small>* Wajib diisi</small></label>
