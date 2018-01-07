@@ -17,7 +17,7 @@ class CreatePesertasTable extends Migration
             
             $table->increments('id');
             $table->char('nama', 50);
-            $table->string('nrp', 13);
+            $table->string('nrp', 14);
             $table->string('departemen', 50);
             $table->char('posisi');
             $table->char('nama_pkk', 50);
