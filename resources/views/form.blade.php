@@ -45,7 +45,7 @@
                     </div>
                 @endif
 
-    {{-- part alert --}}
+                    {{-- part alert --}}
                 @if (Session::has('after_save'))
                     <div class="row">
                         <div class="col-md-12">
@@ -56,7 +56,8 @@
                         </div>
                     </div>
                 @endif
-    {{-- end part alert --}}
+                    {{-- end part alert --}}
+                    
                     <div class="col-md-12" align="left">
                         <div class="form-group">
                             <label class="col-md-4 control-label" style="color: red;"><small>* Wajib diisi</small></label>
@@ -164,7 +165,7 @@
                         <div class="form-group required">
                             <label class="col-md-4 control-label">Bukti Transfer*</label>
                             <div class="col-md-4">
-                                <input type="file" id="bukti_transfer" name="bukti_transfer" class="form-control custom-file-input" required>
+                                <input type="file" accept="image/*" id="bukti_transfer" name="bukti_transfer" class="form-control custom-file-input" required>
                                 <span class="custom-file-control"></span>
                             </div>
                         </div>

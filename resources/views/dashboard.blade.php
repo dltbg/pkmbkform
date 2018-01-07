@@ -412,7 +412,7 @@
                                 <td>{{$pesertas->line}}</td>
                                 <td>@php 
                                     $url = 'storage/app/'.$pesertas->bukti_transfer;
-                                    echo "<img src='$url'/>"; @endphp</td>
+                                    echo "<img src='$url' width='100' height='100'/>"; @endphp</td>
                               </tr>
                             @endforeach
                             </tbody>
@@ -428,7 +428,7 @@
     </div>
   </section>
 </div>
-    
+
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
