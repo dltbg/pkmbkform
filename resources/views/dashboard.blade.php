@@ -155,7 +155,7 @@
                                     <td>{{$unverif->posisi}}</td>
                                     <td>{{$unverif->line}}</td>
                                     <td>
-                                        <a class="btn btn-primary" type="submit">Konfirmasi</a>
+                                        <a method="post"href="verified/<?php echo $unverif['nrp'];?>" class="btn btn-success" type="submit" onClick="return confirm('Lakukan verifikasi?')">Verifikasi</a>
                                     </td>
                                   </tr>
                                 @endforeach
@@ -190,7 +190,7 @@
                                     <td>{{$verif->posisi}}</td>
                                     <td>{{$verif->line}}</td>
                                     <td>
-                                        <a class="btn btn-danger" type="submit">Batalkan</a>
+                                        <a method="post" href="unverified/<?php echo $verif['nrp'];?>" class="btn btn-danger" type="submit" onClick="return confirm('Batalkan verifikasi?')";>Batalkan</a>
                                     </td>
                                   </tr>
                                 @endforeach
@@ -221,11 +221,14 @@
                 @endfor
                 <!-- ./col -->
                </div>
-                @for($i=1; $i<=6; $i++)
+          </section>
+            <section class="row col-lg-12">
+                @for($i=1; $i<=3; $i++)
                 <div class=" col-lg-4 col-md-4 col-sm-6 col-xs-6">
                     <div class="box box-primary">
                         <div class="box-body">
-                            <h3>Bus {{$i}}
+                            @php $bus = 'bus'.$i; @endphp
+                            <h3>Bus {{$i}}</h3>
                             <div class="table-responsive" style="overflow: auto">
                             <table id="alumni" class="table table-bordered table-striped">
                                 <thead>
@@ -249,9 +252,41 @@
                         </div>
                     </div>
                 </div>
-                @endfor
+            @endfor
             </section>
-            
+            <section class="row col-lg-12">
+                @for($i=4; $i<=6; $i++)
+                <div class=" col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                    <div class="box box-primary">
+                        <div class="box-body">
+                            @php $bus = 'bus'.$i; @endphp
+                            <h3>Bus {{$i}}</h3>
+                            <div class="table-responsive" style="overflow: auto">
+                            <table id="alumni" class="table table-bordered table-striped">
+                                <thead>
+                                  <tr>
+                                    <th>ID</th>
+                                    <th>Nama</th>
+                                    <th>NRP</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                @foreach(${$bus} as $buss)
+                                    <tr>
+                                        <td>{{$buss->id}}</td>
+                                        <td>{{$buss->nama}}</td>
+                                        <td>{{$buss->nrp}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            @endfor
+            </section>
+    
             <section class="col-lg-12">
                 <div class="row">
         <div class="col-lg-2 col-xs-4">
@@ -375,7 +410,9 @@
                                 <td>{{$pesertas->hp}}</td>
                                 <td>{{$pesertas->hp_ortu}}</td>
                                 <td>{{$pesertas->line}}</td>
-                                <td>{{$pesertas->bukti_transfer}}</td>
+                                <td>@php 
+                                    $url = 'storage/app/'.$pesertas->bukti_transfer;
+                                    echo "<img src='$url'/>"; @endphp</td>
                               </tr>
                             @endforeach
                             </tbody>
