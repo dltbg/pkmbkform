@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Peserta;
+use App\Absensi;
 
 class FormController extends Controller
 {
@@ -43,6 +44,23 @@ class FormController extends Controller
 
         $data->save();
 
-        return view('form');
+        $data = new Absensi;
+
+        $data->nrp              = $request->get('nrp');
+        $data->bus_berangkat    = '0';
+        $data->opening          = '0';
+        $data->sesi_1           = '0';
+        $data->sesi_2           = '0';
+        $data->sesi_3           = '0';
+        $data->sesi_4           = '0';
+        $data->sesi_5           = '0';
+        $data->sesi_6           = '0';
+        $data->sesi_7           = '0';
+        $data->closing          = '0';
+        $data->bus_pulang       = '0';
+
+        $data->save();
+
+        return view('passing');
     }
 }
