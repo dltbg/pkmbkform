@@ -23,8 +23,8 @@ class CreateAbsensisTable extends Migration
             $table->tinyInteger('sesi_3');
             $table->tinyInteger('sesi_4');
             $table->tinyInteger('sesi_5');
-            $table->tinyInteger('sesi_6');
-            $table->tinyInteger('sesi_7');
+            $table->tinyInteger('worship_night');
+            $table->tinyInteger('ibadah_minggu');
             $table->tinyInteger('closing'); 
             $table->tinyInteger('bus_pulang');
             $table->timestamps();
