@@ -62,6 +62,12 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .likebd{
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
@@ -69,10 +75,18 @@
             <div class="content">
                 <div class="title m-b-md">
                 Terima Kasih Telah Mendaftar!
+
+                <div calss="flex-center likebd m-b-md" style="font-size: 30px;">
+                    <p>
+                    Kami akan melakukan validasi pembayaran,<br>
+                    silahkan tunggu email konfirmasi sebagai peserta camp :)
+                    </p>
+                </div>
                 <div class="title m-b-md">
-                    Tuhan Yesus Memberkati
+                    Tuhan Yesus Memberkati !
                     </div>   
                 </div>
+
 
                 <div class="sub">
                     <a href="{{ route('/') }}">--->Daftar Kembali<---</a>

@@ -37,6 +37,20 @@
                     <h2 style="text-align: center;">Pendaftaran Camp PKMBK 2018</h2>
                     <h3 style="text-align: center;">2-4 Februari 2018</h3>
                 </div>
+
+                <div class="box-header with-border">
+                    <div style="text-align: center;">
+                    <p style="text-align: center;">
+                        Pastikan kalian telah melakukan pembayaran akomodasi CAMP<br>
+                        IDR 130.000,-/orang<br>
+                        ke rekening<br>
+                        (BNI) 0527 615 371 a.n Ronald Brian<br>
+                        (Mandiri) 1330012978680 a.n Ronald Brian
+                    </p>
+                    <small style="text-align: center; font-size: 15px; color: crimson;">----Bukti Pembayaran Upload di Form ini!!----</small>
+                    </div>
+                </div>
+
                 <div class="box-body">
                 @if (session('alert'))
                     <div class="alert alert-danger" id="success-alert">
@@ -57,12 +71,15 @@
                     </div>
                 @endif
                     {{-- end part alert --}}
-                    
+
                     <div class="col-md-12" align="left">
                         <div class="form-group">
-                            <label class="col-md-4 control-label" style="color: red;"><small>* Wajib diisi</small></label>
+                            <label class="col-md-4 control-label" style="color: red;">
+                            <small>* Wajib diisi<br></small>
+                            </label>
                         </div>
                     </div>
+
 
                     <div class="col-md-12">
                         <div class="form-group">
@@ -78,6 +95,15 @@
                             <label class="col-md-4 control-label">NRP*</label>
                             <div class="col-md-4">
                                 <input type="number" class="form-control" id="nrp" name="nrp" required/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Email*</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="email" name="email" required/>
                             </div>
                         </div>
                     </div>
@@ -167,6 +193,7 @@
                             <div class="col-md-4">
                                 <input type="file" accept="image/*" id="bukti_transfer" name="bukti_transfer" class="form-control custom-file-input" required>
                                 <span class="custom-file-control"></span>
+                                <small style="color: red; text-align: center;">Maksimal file size 2M</small>
                             </div>
                         </div>
                     </div>

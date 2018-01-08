@@ -55,6 +55,7 @@ class FormController extends Controller
 
         $data->nama             = $request->get('nama');
         $data->nrp              = $request->get('nrp');
+        $data->email            = $request->get('email');
         $data->departemen       = $request->get('departemen');
         $data->posisi           = $request->get('posisi');
         $data->nama_pkk         = $request->get('nama_pkk');
@@ -71,6 +72,7 @@ class FormController extends Controller
         $data = new Absensi;
 
         $data->nrp              = $request->get('nrp');
+        $data->berangkat        = '0';
         $data->bus_berangkat    = '0';
         $data->opening          = '0';
         $data->sesi_1           = '0';
@@ -82,6 +84,7 @@ class FormController extends Controller
         $data->sesi_7           = '0';
         $data->closing          = '0';
         $data->bus_pulang       = '0';
+        $data->pulang           = '0';
 
         $data->save();
 
