@@ -80,8 +80,8 @@ class FormController extends Controller
         $data->sesi_3           = '0';
         $data->sesi_4           = '0';
         $data->sesi_5           = '0';
-        $data->sesi_6           = '0';
-        $data->sesi_7           = '0';
+        $data->worship_night           = '0';
+        $data->ibadah_minggu           = '0';
         $data->closing          = '0';
         $data->bus_pulang       = '0';
         $data->pulang           = '0';

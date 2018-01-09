@@ -15,7 +15,8 @@ class CreateAbsensisTable extends Migration
     {
         Schema::create('absensis', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nrp', 14);
+            $table->string('nrp', 14)->unique();
+            $table->tinyInteger('berangkat');
             $table->tinyInteger('bus_berangkat');
             $table->tinyInteger('opening');
             $table->tinyInteger('sesi_1');
@@ -27,6 +28,7 @@ class CreateAbsensisTable extends Migration
             $table->tinyInteger('ibadah_minggu');
             $table->tinyInteger('closing'); 
             $table->tinyInteger('bus_pulang');
+            $table->tinyInteger('pulang');
             $table->timestamps();
         });
     }

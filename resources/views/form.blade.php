@@ -26,7 +26,7 @@
         <link rel="stylesheet" href="{{ URL::asset('public/adminlte/dist/css/skins/_all-skins.min.css') }}">
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     </head>
-    <body>
+    <body background="public/background.jpg">
         <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <section class="col-lg-3 col-md-3 col-sm-1 col-xs-1"></section>
             <section class="content col-lg-6 col-md-6 col-sm-10 col-xs-10">
