@@ -195,7 +195,7 @@
                             <div class="col-md-4">
                                 <input type="file" accept="image/*" id="bukti_transfer" name="bukti_transfer" class="form-control custom-file-input" required>
                                 <span class="custom-file-control"></span>
-                                <small style="color: red; font-size: 10px;">Maksimal file size 2MB</small>
+                                <small style="color: red; font-size: 10px;">Hanya .jpg .jpeg dan .png<br>Maksimal file size 2MB</small>
                             </div>
                         </div>
                     </div>

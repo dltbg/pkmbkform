@@ -141,6 +141,7 @@
                                 <th>ID</th>
                                 <th>Nama</th>
                                 <th>NRP</th>
+                                <th>Email</th>
                                 <th>Posisi</th>
                                 <th>ID Line</th>
                                 <th>Konfirmasi</th>
@@ -152,6 +153,7 @@
                                     <td>{{$unverif->id}}</td>
                                     <td>{{$unverif->nama}}</td>
                                     <td>{{$unverif->nrp}}</td>
+                                    <td>{{$unverif->email}}</td>
                                     <td>{{$unverif->posisi}}</td>
                                     <td>{{$unverif->line}}</td>
                                     <td>
@@ -176,6 +178,7 @@
                                 <th>ID</th>
                                 <th>Nama</th>
                                 <th>NRP</th>
+                                <th>Email</th>
                                 <th>Status</th>
                                 <th>ID Line</th>
                                 <th>Batalkan</th>
@@ -187,6 +190,7 @@
                                     <td>{{$verif->id}}</td>
                                     <td>{{$verif->nama}}</td>
                                     <td>{{$verif->nrp}}</td>
+                                    <td>{{$verif->email}}</td>
                                     <td>{{$verif->posisi}}</td>
                                     <td>{{$verif->line}}</td>
                                     <td>
@@ -458,6 +462,7 @@
                                 <th>ID</th>
                                 <th>Nama</th>
                                 <th>NRP</th>
+                                <th>Email</th>
                                 <th>Posisi</th>
                                 <th>Departemen</th>
                                 <th>Nama PKK</th>
@@ -475,6 +480,7 @@
                                 <td>{{$pesertas->id}}</td>
                                 <td>{{$pesertas->nama}}</td>
                                 <td>{{$pesertas->nrp}}</td>
+                                <td>{{$pesertas->email}}</td>
                                 <td>{{$pesertas->posisi}}</td>
                                 <td>{{$pesertas->departemen}}</td>
                                 <td>{{$pesertas->nama_pkk}}</td>
