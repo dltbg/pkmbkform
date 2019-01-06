@@ -27,6 +27,7 @@ class CreatePesertasTable extends Migration
             $table->string('hp', 12);
             $table->string('hp_ortu', 12);
             $table->string('line', 25)->nullable();
+            $table->binary('foto');
             $table->binary('bukti_transfer');
             $table->tinyInteger('konfirmasi');
             $table->timestamps();
