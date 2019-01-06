@@ -65,8 +65,8 @@ class FormController extends Controller
         $data->hp               = $request->get('hp');
         $data->hp_ortu          = $request->get('hp_ortu');
         $data->line             = $request->get('line');
-		$data->foto				= $request->file('foto')->store('foto');
-        $data->bukti_transfer   = $request->file('bukti_transfer')->store('bukti_transfer');
+		$data->foto				= $request->file('foto')->storeAs('foto', $data->nrp.'.jpg');
+        $data->bukti_transfer   = $request->file('bukti_transfer')->storeAs('bukti_transfer', $data->nrp.'.jpg');
         $data->konfirmasi       = '0';
 
         $data->save();

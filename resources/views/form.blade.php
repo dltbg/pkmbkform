@@ -182,12 +182,12 @@
 									<label class="col-md-4 control-label">Posisi*</label>
 									<div class="col-md-4">
 										<select class="form-control" id="posisi" name="posisi" required>
-											<option value="AKK">AKK(2018)</option>
+											<option value="AKK">AKK (2018)</option>
 											<option value="PKK">PKK</option>
 											<option value="CPKK">CPKK</option>
 											<option value="PELAYAN">PELAYAN</option>
 											<option value="ALUMNI">ALUMNI</option>
-											<option value="PANITIA">PANITIA(NON PKK/CPKK)</option>
+											<option value="PANITIA">PANITIA (NON-PKK/CPKK)</option>
 											
 										</select>
 									</div>
@@ -253,12 +253,11 @@
 							<br>
 							<div class="col-md-12">
 								<div class="form-group required">
-									<label class="col-md-4 control-label">Foto Diri*</label>
+									<label class="col-md-4 control-label">Pasfoto*</label>
 									<div class="col-md-4">
 										<input type="file" accept="image/*" id="foto" name="foto" class="form-control custom-file-input" required>
 										<span class="custom-file-control"></span>
-										<small style="color: red; font-size: 10px;">*Foto berupa pas foto dan hanya .jpg .jpeg dan .png<br>Maksimal file size 2MB</small>
-										<small style="color: red; font-size: 10px;">Serta nama foto menggunakan NRP lengkap, contoh:"05211740000096.jpg"</small>
+										<small style="color: red; font-size: 10px;">Hanya .jpg .jpeg dan .png<br>Maksimal file size 2MB</small>
 									</div>
 								</div>
 								<div class="form-group required">
