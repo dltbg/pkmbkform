@@ -141,9 +141,13 @@
                                 <th>ID</th>
                                 <th>Nama</th>
                                 <th>NRP</th>
+                                <th>No_hp</th>
                                 <th>Email</th>
                                 <th>Posisi</th>
+                                <th>Nama PKK</th>
                                 <th>ID Line</th>
+								<th>Foto</th>
+                                <th>Bukti_transfer</th>
                                 <th>Konfirmasi</th>
                               </tr>
                             </thead>
@@ -153,9 +157,17 @@
                                     <td>{{$unverif->id}}</td>
                                     <td>{{$unverif->nama}}</td>
                                     <td>{{$unverif->nrp}}</td>
+                                    <td>{{$unverif->hp}}</td>
                                     <td>{{$unverif->email}}</td>
                                     <td>{{$unverif->posisi}}</td>
+                                    <td>{{$unverif->nama_pkk}}</td>
                                     <td>{{$unverif->line}}</td>
+									 <td>@php 
+                                    $url = 'storage/app/'.$unverif->foto;
+                                    echo "<img src='$url' width='100' height='100'/>"; @endphp</td>
+                                    <td>@php 
+                                    $url = 'storage/app/'.$unverif->bukti_transfer;
+                                    echo "<img src='$url' width='100' height='100'/>"; @endphp</td>
                                     <td>
                                         <a method="post" href="verified/<?php echo $unverif['nrp'];?>" class="btn btn-success" type="submit" onClick="return confirm('Lakukan verifikasi?')">Verifikasi</a>
                                     </td>
@@ -225,7 +237,7 @@
                 @endfor
                 <!-- ./col -->
                </div>
-          </section>
+            </section>
             <section class="row col-lg-12">
                 @for($i=1; $i<=3; $i++)
                 <div class=" col-lg-4 col-md-4 col-sm-6 col-xs-6">
@@ -259,7 +271,7 @@
                 @endfor
             </section>
             <section class="row col-lg-12">
-                @for($i=4; $i<=6; $i++)
+                @for($i=4; $i<=5; $i++)
                 <div class=" col-lg-4 col-md-4 col-sm-6 col-xs-6">
                     <div class="box box-primary">
                         <div class="box-body">
@@ -289,9 +301,7 @@
                     </div>
                 </div>
                 @endfor
-            </section>
-            <section class="row col-lg-12">
-                <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class=" col-lg-4 col-md-4 col-sm-6 col-xs-6">
                     <div class="box box-primary">
                         <div class="box-body">
                             <h3>Berangkat Sendiri</h3>
@@ -318,7 +328,36 @@
                         </div>
                     </div>
                 </div>
-                <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            </section>
+            <section class="row col-lg-12">
+                <!--<div class=" col-lg-6 col-md-6 col-sm-6 col-xs-6">-->
+                <!--    <div class="box box-primary">-->
+                <!--        <div class="box-body">-->
+                <!--            <h3>Berangkat Sendiri</h3>-->
+                <!--            <div class="table-responsive" style="overflow: auto">-->
+                <!--            <table id="sendiri" class="table table-bordered table-striped">-->
+                <!--                <thead>-->
+                <!--                  <tr>-->
+                <!--                    <th>ID</th>-->
+                <!--                    <th>Nama</th>-->
+                <!--                    <th>NRP</th>-->
+                <!--                  </tr>-->
+                <!--                </thead>-->
+                <!--                <tbody>-->
+                <!--                @foreach($sendiri as $buss)-->
+                <!--                    <tr>-->
+                <!--                        <td>{{$buss->id}}</td>-->
+                <!--                        <td>{{$buss->nama}}</td>-->
+                <!--                        <td>{{$buss->nrp}}</td>-->
+                <!--                    </tr>-->
+                <!--                @endforeach-->
+                <!--                </tbody>-->
+                <!--            </table>-->
+                <!--            </div> -->
+                <!--        </div>-->
+                <!--    </div>-->
+                <!--</div>-->
+                <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="box box-primary">
                         <div class="box-body">
                             <h3>Assign Bus</h3>
