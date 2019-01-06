@@ -246,6 +246,7 @@
 										<input type="file" accept="image/*" id="foto" name="foto" class="form-control custom-file-input" required>
 										<span class="custom-file-control"></span>
 										<small style="color: red; font-size: 10px;">Hanya .jpg .jpeg dan .png<br>Maksimal file size 2MB</small>
+										<small style="color: red; font-size: 10px;">Serta nama foto menggunakan NRP lengkap, contoh:"05211740000096.jpg"</small>
 									</div>
 								</div>
 								<div class="form-group required">
