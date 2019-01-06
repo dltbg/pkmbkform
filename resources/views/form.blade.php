@@ -151,7 +151,7 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">NRP*</label>
 									<div class="col-md-4">
-										<input type="number" class="form-control" id="nrp" name="nrp" placeholder="NRP 14 digit." required/>
+										<input type="number" class="form-control" id="nrp" name="nrp" placeholder="NRP 14 digit." maxlength="14" minlength="10" required/>
 										<small style="color: red; font-size: 10px;">*Gunakan NRP baru!</small><br>
 										<small style="color: red; font-size: 10px;">*NRP 10 Digit untuk alumni</small>
 									</div>
