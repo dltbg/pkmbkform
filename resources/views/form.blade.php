@@ -27,14 +27,12 @@
 	<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
 	<style>
-		/* Style the tab */
 		
 		.tab {
 			overflow: hidden;
 			border: 1px solid #ccc;
 			background-color: #f1f1f1;
 		}
-		/* Style the buttons inside the tab */
 		
 		.tab button {
 			background-color: inherit;
@@ -64,12 +62,25 @@
 			border: 0px solid #ccc;
 			border-top: none;
 		}
+		
+		.bg {
+			
+			background-image:url(public/backgroundweb.jpg);
+			background-repeat:round;
+			background-size:auto;
+		}
+
 	</style>
 
 </head>
-<!-- <body background="public/background.jpg">-->
 
-<body>
+<body class="bg">
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<!-- maaf bang gabisa styling :)) -->
 	<div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<section class="col-lg-3 col-md-3 col-sm-1 col-xs-1"></section>
 		<section class="content col-lg-6 col-md-6 col-sm-10 col-xs-10">
@@ -84,8 +95,8 @@
 					<div class="box-header with-border">
 						<div style="text-align: center;">
 							<p style="text-align: center;">
-								Pastikan kalian telah melakukan pembayaran akomodasi CAMP<br> ??,-/orang
-								<br> ke rekening<br> (BNI) ??<br> (Mandiri) ??
+								Pastikan kalian telah melakukan pembayaran akomodasi CAMP<br> Rp 130.000,-/orang
+								<br> ke rekening<br> (BNI) 0769583044 (a.n. Verlinna Lovely M)<br> (Mandiri) 0310012819259 (a.n. Verlinna Lovely M)
 							</p>
 							<small style="text-align: center; font-size: 15px; color: crimson;">----Bukti Pembayaran Upload di Form ini!!----</small>
 						</div>
@@ -141,7 +152,8 @@
 									<label class="col-md-4 control-label">NRP*</label>
 									<div class="col-md-4">
 										<input type="number" class="form-control" id="nrp" name="nrp" placeholder="NRP 14 digit." required/>
-										<small style="color: red; font-size: 10px;">Gunakan NRP baru!</small>
+										<small style="color: red; font-size: 10px;">*Gunakan NRP baru!</small><br>
+										<small style="color: red; font-size: 10px;">*NRP 10 Digit untuk alumni</small>
 									</div>
 
 								</div>
@@ -170,13 +182,13 @@
 									<label class="col-md-4 control-label">Posisi*</label>
 									<div class="col-md-4">
 										<select class="form-control" id="posisi" name="posisi" required>
-											<option value="AKK">AKK</option>
+											<option value="AKK">AKK(2018)</option>
 											<option value="PKK">PKK</option>
 											<option value="CPKK">CPKK</option>
 											<option value="PELAYAN">PELAYAN</option>
 											<option value="ALUMNI">ALUMNI</option>
-											<option value="PANITIA">PANITIA</option>
-											<option value="UMUM">UMUM</option>
+											<option value="PANITIA">PANITIA(NON PKK/CPKK)</option>
+											
 										</select>
 									</div>
 								</div>
@@ -245,7 +257,7 @@
 									<div class="col-md-4">
 										<input type="file" accept="image/*" id="foto" name="foto" class="form-control custom-file-input" required>
 										<span class="custom-file-control"></span>
-										<small style="color: red; font-size: 10px;">Hanya .jpg .jpeg dan .png<br>Maksimal file size 2MB</small>
+										<small style="color: red; font-size: 10px;">*Foto berupa pas foto dan hanya .jpg .jpeg dan .png<br>Maksimal file size 2MB</small>
 										<small style="color: red; font-size: 10px;">Serta nama foto menggunakan NRP lengkap, contoh:"05211740000096.jpg"</small>
 									</div>
 								</div>
