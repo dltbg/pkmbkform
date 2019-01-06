@@ -528,6 +528,9 @@
                                 <td>{{$pesertas->hp}}</td>
                                 <td>{{$pesertas->hp_ortu}}</td>
                                 <td>{{$pesertas->line}}</td>
+								 <td>@php 
+                                    $url = 'storage/app/'.$unverif->foto;
+                                    echo "<img src='$url' width='100' height='100'/>"; @endphp</td>
                                 <td>@php 
                                     $url = 'storage/app/'.$pesertas->bukti_transfer;
                                     echo "<img src='$url' width='100' height='100'/>"; @endphp</td>
