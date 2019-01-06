@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -22,5 +23,7 @@ Route::any('absen', ['as'=>'absen', 'uses'=>'CampController@absen']);
 Route::any('getAbsensi', ['as'=>'getAbsensi', 'uses'=>'CampController@getAbsensi']);
 
 Route::post('new_participant', ['as'=>'new_participant', 'uses'=>'FormController@register']);
+// Route::any('new_participant', function () { return redirect()->route('/'); });
 Route::any('dashboard', ['as'=>'dashboard', 'uses'=>'DashboardController@index']);
-Route::get('/', ['as'=>'/', 'uses'=>'FormController@index']);
+Route::get('/', ['as'=>'/', 'uses'=>'IndexController@index']);
+Route::get('/form', ['as'=>'/form', 'uses'=>'FormController@index']);
