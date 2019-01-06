@@ -68,11 +68,29 @@
                 letter-spacing: .1rem;
                 text-align: center;
             }
+			
+			.bg {
+			
+			background-image:url(public/backgroundweb.jpg);
+			background-repeat:round;
+			background-size:auto;
+	        	}
+	        	
+	        .bgwhite{
+	            background-color: white;
+	            margin: 20px;
+  				padding: 20px;
+	        }
+	        
+	        p{
+	           font-family: "Trebuchet MS", Helvetica, sans-serif;
+	           
+	        }
         </style>
     </head>
-    <body>
+    <body class="bg">
         <div class="flex-center position-ref full-height">
-            <div class="content">
+            <div class="bgwhite">
                 <div class="title m-b-md">
                 Terima Kasih Telah Mendaftar!
 

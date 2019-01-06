@@ -7,9 +7,7 @@
 
         <title>Camp PKMBK 2019</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+      
         <!-- Styles -->
         <style>
             html, body {
@@ -52,8 +50,8 @@
             .sub > a {
                 color: #636b6f;
                 padding: 0 25px;
-                font-size: 25px;
-                font-weight: 600;
+                font-size: 10px;
+                font-weight: 300;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
@@ -64,32 +62,63 @@
             }
 
             .likebd{
-                font-weight: 600;
+                font-weight: 300;
                 letter-spacing: .1rem;
                 text-align: center;
             }
+            
+            .bg {
+			
+			background-image:url(public/backgroundweb.jpg);
+			background-repeat:round;
+			background-size:auto;
+	        	}
+	        	
+	        .bgwhite{
+	            background-color: white;
+	            margin: 20px;
+  				padding: 20px;
+	        }
+	        
+	        p{
+	           font-family: "Trebuchet MS", Helvetica, sans-serif;
+	           
+	        }
         </style>
     </head>
-    <body>
+    <body class="bg">
         <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="title m-b-md">
+            <div class="bgwhite">
+                <div class="title s-b-md" style="font-size: 20px;">
+                <p style="text-align: center;">
                 Selamat Datang !
-
-                <div calss="flex-center likebd m-b-md" style="font-size: 30px;">
-                    <p>
+                </p>
+                <div calal="flex-center likebd m-b-md" style="font-size: 15px;">
+                    <p style="text-align: center;">
                     Berikut merupakan form pendaftaran untuk Camp PKMBK 2019 !<br>
-                    silahkan klik tombol dibawah ya untuk mendaftar
+                    Camp tahun ini bertemakan "I Choose Jesus" <br>
+                    yang akan diadakan pada tanggal 1-3 Februari <br>
+                    di Lembah Karmel Malang.
                     </p>
+                    <p style="text-align: center;">
+								Pastikan kalian telah melakukan pembayaran akomodasi CAMP<br> Rp 130.000,-/orang
+								<br> REKENING :<br> (BNI) 0769583044 (a.n. Verlinna Lovely M)<br> (Mandiri) 0310012819259 (a.n. Verlinna Lovely M)
+					</p>
+					<p style="text-align: center;"> 
+                    Sebelum mengisi form diminta untuk menyiapkan<br>
+                    <u>bukti transfer</u> dan <u>pas foto</u> ya !<br>
+                    </p style="text-align: center;">
                 </div>
-                <div class="title m-b-md">
-                    Tuhan Yesus Memberkati !
+                <div  style="font-size: 15px;">
+                    <p style="text-align: center;"> 
+                    Silahkan klik tombol di bawah ini untuk melakukan pendaftaran !
+                    </p>
                     </div>   
                 </div>
-
-
                 <div class="sub">
+                <p style="text-align: center;">
                     <a href="{{ route('/form') }}">--->Daftar<---</a>
+                    </p>
                 </div>
             </div>
         </div>

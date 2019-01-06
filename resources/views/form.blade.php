@@ -306,12 +306,19 @@
 			var posisi      = document.getElementById("posisi").value;
 			var hp          = document.getElementById("hp").value;
 			var hp_ortu     = document.getElementById("hp_ortu").value;
+			var check       =/^[a-zA-Z ]+$/;
 			
 			if ( nama == "" || nrp == "" || email == "" || departemen == "" || posisi == "" || hp == "" || hp_ortu == "") {
 
 				alert( "Data diri masih ada yang kosong." );
 				return false;
 			}
+			
+			else if (!nama.match(check))
+    		{
+        			alert("Nama harus diisi huruf");
+        			return false;
+    		}
 			
 			
 			tabcontent = document.getElementsByClassName( "tabcontent" );
