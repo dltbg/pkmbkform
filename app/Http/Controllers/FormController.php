@@ -24,7 +24,8 @@ class FormController extends Controller
     public function index()
     {
         //
-        return view('form');
+         return view('form');
+        // return view('form');
     }
 
     public function register (Request $request)
@@ -64,6 +65,7 @@ class FormController extends Controller
         $data->hp               = $request->get('hp');
         $data->hp_ortu          = $request->get('hp_ortu');
         $data->line             = $request->get('line');
+		$data->foto				= $request->file('foto')->store('foto');
         $data->bukti_transfer   = $request->file('bukti_transfer')->store('bukti_transfer');
         $data->konfirmasi       = '0';
 
