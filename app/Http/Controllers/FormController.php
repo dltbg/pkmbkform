@@ -33,6 +33,7 @@ class FormController extends Controller
         
         $rules = array(
             'bukti_transfer'    => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+			'foto'    			=> 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -56,6 +57,7 @@ class FormController extends Controller
 
         $data->nama             = $request->get('nama');
         $data->nrp              = $request->get('nrp');
+		$data->jenis_kelamin    = $request->get('jenis_kelamin');
         $data->email            = $request->get('email');
         $data->departemen       = $request->get('departemen');
         $data->posisi           = $request->get('posisi');
