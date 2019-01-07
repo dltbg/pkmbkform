@@ -140,8 +140,8 @@
                               <tr>
                                 <th>ID</th>
                                 <th>Nama</th>
-								<th>Jenis_kelamin</th>
                                 <th>NRP</th>
+								<th>Jenis_kelamin</th>
                                 <th>No_hp</th>
                                 <th>Email</th>
                                 <th>Posisi</th>
