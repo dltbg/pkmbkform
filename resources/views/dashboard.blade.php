@@ -140,6 +140,7 @@
                               <tr>
                                 <th>ID</th>
                                 <th>Nama</th>
+								<th>Jenis_kelamin</th>
                                 <th>NRP</th>
                                 <th>No_hp</th>
                                 <th>Email</th>
@@ -157,6 +158,7 @@
                                     <td>{{$unverif->id}}</td>
                                     <td>{{$unverif->nama}}</td>
                                     <td>{{$unverif->nrp}}</td>
+									<td>{{$unverif->jenis_kelamin}}</td>
                                     <td>{{$unverif->hp}}</td>
                                     <td>{{$unverif->email}}</td>
                                     <td>{{$unverif->posisi}}</td>
@@ -190,6 +192,7 @@
                                 <th>ID</th>
                                 <th>Nama</th>
                                 <th>NRP</th>
+								<th>Jenis Kelamin</th>
                                 <th>Email</th>
                                 <th>Status</th>
                                 <th>ID Line</th>
@@ -202,6 +205,7 @@
                                     <td>{{$verif->id}}</td>
                                     <td>{{$verif->nama}}</td>
                                     <td>{{$verif->nrp}}</td>
+									<td>{{$verif->jenis_kelamin}}</td>
                                     <td>{{$verif->email}}</td>
                                     <td>{{$verif->posisi}}</td>
                                     <td>{{$verif->line}}</td>

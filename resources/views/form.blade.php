@@ -158,6 +158,19 @@
 
 								</div>
 							</div>
+							
+							<div class="col-md-12">
+								<div class="form-group required">
+									<label class="col-md-4 control-label">Jenis Kelamin*</label>
+									<div class="col-md-4">
+										<select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
+											<option value="laki">Laki-laki</option>
+											<option value="perempuan">Perempuan</option>
+											
+										</select>
+									</div>
+								</div>
+							</div>
 
 							<div class="col-md-12">
 								<div class="form-group">
@@ -299,16 +312,17 @@
 		}
 		function openTabs2( bagianForm ) {
 			var i, tabcontent, tablinks;
-			var nama 		= document.getElementById("nama").value;
-			var nrp  		= document.getElementById("nrp").value;
-			var email 		= document.getElementById("email").value;
-			var departemen 	= document.getElementById("departemen").value;
-			var posisi      = document.getElementById("posisi").value;
-			var hp          = document.getElementById("hp").value;
-			var hp_ortu     = document.getElementById("hp_ortu").value;
-			var check       =/^[a-zA-Z ]+$/;
+			var nama 			= document.getElementById("nama").value;
+			var nrp  			= document.getElementById("nrp").value;
+			var jenis_kelamin	= document.getElementById("jenis_kelamin").value;
+			var email 			= document.getElementById("email").value;
+			var departemen 		= document.getElementById("departemen").value;
+			var posisi      	= document.getElementById("posisi").value;
+			var hp          	= document.getElementById("hp").value;
+			var hp_ortu    	 	= document.getElementById("hp_ortu").value;
+			var check       	=/^[a-zA-Z ]+$/;
 			
-			if ( nama == "" || nrp == "" || email == "" || departemen == "" || posisi == "" || hp == "" || hp_ortu == "") {
+			if ( nama == "" || nrp == "" || jenis_kelamin == "" || email == "" || departemen == "" || posisi == "" || hp == "" || hp_ortu == "") {
 
 				alert( "Data diri masih ada yang kosong." );
 				return false;
