@@ -201,7 +201,7 @@
 											<option value="PELAYAN">PELAYAN</option>
 											<option value="ALUMNI">ALUMNI</option>
 											<option value="PANITIA">PANITIA (NON-PKK/CPKK)</option>
-											
+											<option value="KONSELOR">KONSELOR</option>
 										</select>
 									</div>
 								</div>
